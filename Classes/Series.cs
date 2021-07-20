@@ -13,6 +13,8 @@ namespace CatalogoSeries
 
         private int Ano { get; set; }
 
+        private bool Excluido { get; set; }
+
         public Series(int id, Genero genero, string titulo, string descricao, int ano)
         {
             this.Id = id;
@@ -20,6 +22,7 @@ namespace CatalogoSeries
             this.Titulo = titulo;
             this.Descricao = descricao;
             this.Ano = ano;
+            this.Excluido = false;
         }
 
         public override string ToString()
@@ -28,7 +31,8 @@ namespace CatalogoSeries
             retorno += "Genero: " + this.Genero + Environment.NewLine;
             retorno += "Titulo: " + this.Titulo + Environment.NewLine;
             retorno += "Descrição: " + this.Descricao + Environment.NewLine;
-            retorno += "Ano de Inicío: " + this.Ano;
+            retorno += "Ano de Inicío: " + this.Ano + Environment.NewLine;
+            retorno += "Excluído: " + this.Excluido;
             return retorno;
         }
         public string retornaTitulo()
@@ -38,6 +42,15 @@ namespace CatalogoSeries
         public int retornaId()
         {
             return this.Id;
+        }
+
+        public bool retornaExcluido()
+        {
+            return this.Excluido;
+        }
+        public void Excluir()
+        {
+            this.Excluido = true;
         }
 
     }
